@@ -1,0 +1,15 @@
+#angular files
+angular/.gitignore
+angular/browserlist
+angular/README.md
+angular/package-lock.json
+angular/package.json
+angular/tsconfig.app.json
+angular/tsconfig.json
+
+
+#Movie-Tracker files
+movie-tracker/src/target
+movie-tracker/.classpath
+movie-tracker/.project
+movie-tracker/.settings
