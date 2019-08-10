@@ -1,6 +1,6 @@
-<p>login works!</p>
+
 <h2>Login</h2>
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="loginForm" (ngSubmit)="OnSubmit()">
     <div class="form-group">
         <label for="username">Username</label>
         <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
@@ -23,3 +23,5 @@
         <a routerLink="/register" class="btn btn-link">Register</a>
     </div>
 </form>
+
+<p *ngFor="let l of userInfo | async">{{l.firstname}}</p>
