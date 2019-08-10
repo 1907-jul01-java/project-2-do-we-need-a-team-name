@@ -9,7 +9,11 @@ angular/tsconfig.json
 
 
 #Movie-Tracker files
-movie-tracker/src/target
+movie-tracker/target
 movie-tracker/.classpath
 movie-tracker/.project
 movie-tracker/.settings
+
+.vscode
+
+target
