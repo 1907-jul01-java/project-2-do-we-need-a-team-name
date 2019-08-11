@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators, FormGroup} from '@angular/forms';
 import { LoginServiceService } from '../login-service.service';
 import { Login } from './Login';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +11,8 @@ import { Login } from './Login';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  userInfo: Login;
-  firstname;
+  userInfo: Observable<Login[]>;
+  loginInfo: Login;
 
   constructor(private formBuilder: FormBuilder, private loginService: LoginServiceService) {
   };
@@ -21,12 +22,16 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
+    this.userInfo = this.loginService.getLogin();
   };
 
   get f() { return this.loginForm.controls; }
 
   OnSubmit(){
-    console.log(this.loginService.getLogin(this.f.username.value, this.f.password.value).subscribe((data: Login) => this.userInfo = {...data}));
-    this.firstname = this.userInfo.firstname;
+    // this.userInfo = this.loginService.getLogin(this.f.username.value, this.f.password.value);
+    // this.loginInfo.username = this.f.username.value;
+    // this.loginInfo.password = this.f.password.value;
+    // this. userInfo = this.loginService.getLogin(this.loginInfo);
+    this.userInfo = this.loginService.getLogin();
   }
 }

@@ -9,14 +9,17 @@ import { Observable } from 'rxjs';
 export class LoginServiceService {
   url: string = "http://localhost:8080/testBackEnd-1.0-SNAPSHOT/output";
   constructor(private http: HttpClient) { }
-json: String;
+json;
 httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
   })
 };
-  getLogin(username, password): Observable<Login>{
-    this.json =JSON.stringify({username: username, password: password});
-    return this.http.post<Login>(this.url, this.json);
+  postLogin(login: Login): Observable<Login[]>{
+    //  this.json =JSON.stringify({username: username, password: password});
+    return this.http.post<Login[]>(this.url, login, this.httpOptions);
+  }
+  getLogin(): Observable<Login[]> {
+    return this.http.get<Login[]>(this.url);
   }
 }
