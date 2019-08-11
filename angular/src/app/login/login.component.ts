@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators, FormGroup} from '@angular/forms';
 import { LoginServiceService } from '../login-service.service';
 import { Login } from './Login';
-import { Observable } from 'rxjs';
+import { Observable} from 'rxjs';
+import {map} from 'rxjs/operators'
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  userInfo: Observable<Login[]>;
+  userInfo;
   loginInfo: Login;
 
   constructor(private formBuilder: FormBuilder, private loginService: LoginServiceService) {
@@ -32,6 +33,8 @@ export class LoginComponent implements OnInit {
     // this.loginInfo.username = this.f.username.value;
     // this.loginInfo.password = this.f.password.value;
     // this. userInfo = this.loginService.getLogin(this.loginInfo);
-    this.userInfo = this.loginService.getLogin();
+    this.loginService.getLogin().pipe(map(response => {this.userInfo = response;
+    console.log(this.userInfo)}
+    )).subscribe();
   }
 }
