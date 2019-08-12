@@ -1,5 +1,7 @@
 package com.revature.controllers;
 
+import java.util.ArrayList;
+
 import com.revature.data.User;
 import com.revature.repositories.UserRepository;
 
@@ -18,12 +20,16 @@ public class UserController {
     RestTemplate restTemplate;
 
     @RequestMapping("/register")
-    public User register(@RequestBody User user) {
-        return userRepository.postUser(user);
+    public ArrayList<User> register(@RequestBody User user) {
+        ArrayList<User> list = new ArrayList<User>();
+        list.add(userRepository.postUser(user));
+        return list;
     }
 
     @RequestMapping("/login")
-    public User login(@RequestBody User user) {
-        return userRepository.authenticate(user.getUsername(), user.getPassword());
+    public ArrayList<User> login(@RequestBody User user) {
+        ArrayList<User> list = new ArrayList<User>();
+        list.add(userRepository.authenticate(user.getUsername(), user.getPassword()));
+        return list;
     }
 }
