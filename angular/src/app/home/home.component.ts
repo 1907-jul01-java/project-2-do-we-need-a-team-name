@@ -19,24 +19,18 @@ export class HomeComponent implements OnInit {
   Popular;
 
   ngOnInit() {
-    // this.nowPlaying = this.HomeService.getNowPlaying();
-    // console.log(this.nowPlaying);
-    // this.nowPlaying.imageURL = (this.ConfigService.getListImage() + this.nowPlaying.poster_path);
-    // this.HomeService.getNowPlaying().pipe(map( response => {
-    //   this.nowPlaying = response;
-    //   this.nowPlaying.imageURL = (this.ConfigService.getListImage() + this.nowPlaying.results.poster_path);
-    //   console.log(this.nowPlaying.results);
-    // })).subscribe();
     this.HomeService.getNowPlaying().subscribe(response => {
       this.nowPlaying = response['results'];
-      this.nowPlaying.forEach(function() {
-        this.nowPlaying.imageURL = (this.ConfigService.getListImage() + this.nowPlaying['poster_path']);
-      });
-      
       console.log(this.nowPlaying)
       });
-    this.topRated = this.HomeService.getTopRated();
-    this.Popular = this.HomeService.getPopular();
+    this.HomeService.getPopular().subscribe(response => {
+      this.Popular = response['results'];
+      console.log(this.Popular);
+    });
+    this.HomeService.getTopRated().subscribe(response => {
+      this.topRated = response['results'];
+      console.log(this.topRated);
+    });
   }
 
 }
