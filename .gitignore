@@ -13,3 +13,6 @@ movie-tracker/src/target
 movie-tracker/.classpath
 movie-tracker/.project
 movie-tracker/.settings
+.vscode/launch.json
+.vscode/settings.json
+movie-tracker/target/
