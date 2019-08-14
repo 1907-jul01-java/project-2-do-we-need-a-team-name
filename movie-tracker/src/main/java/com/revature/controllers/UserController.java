@@ -6,12 +6,15 @@ import com.revature.data.User;
 import com.revature.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
+// @CrossOrigin("http://localhost:4200")
+//@RequestMapping("User")
 public class UserController {
     @Autowired
     private UserRepository userRepository;
@@ -32,4 +35,6 @@ public class UserController {
         list.add(userRepository.authenticate(user.getUsername(), user.getPassword()));
         return list;
     }
+
+
 }
