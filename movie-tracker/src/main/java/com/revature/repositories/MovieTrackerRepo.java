@@ -23,8 +23,9 @@ public class MovieTrackerRepo {
         return entityManager.unwrap(Session.class);
     }
 
-    public void updateMyMovieTracker(){
-        
+    public void updateMyMovieTracker(MovieTracker movieTracker){
+        //Update tracked and watched given username and movieid
+        getSession().update(movieTracker);
     }
 
     public MovieTracker postMovie(MovieTracker movieTracker){

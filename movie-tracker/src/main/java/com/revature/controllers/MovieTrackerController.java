@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,10 +41,10 @@ public class MovieTrackerController {
         return list;
     }
 
-    // @RequestMapping("/movieid")
+    // @PutMapping("/updateTracker")
     // public MovieTracker returnMovieTracker(@RequestBody MovieTracker movieTracker) {
-    //     list.add(MovieTrackerRepository.());
-    //     return MovieTracker;
+    //     list.add(MovieTrackerRepository.updateMyMovieTracker(movieTracker));
+    //     return list;
     // }
 
 
