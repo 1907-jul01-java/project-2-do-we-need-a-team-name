@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.revature.AppTest" time="0.043" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.revature.AppTest" time="0.034" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -7,7 +7,7 @@
     <property name="java.specification.version" value="1.8"/>
     <property name="sun.cpu.isalist" value=""/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/home/luft/Desktop/Revature/Project2/Test Backend/testBackEnd/target/test-classes:/home/luft/Desktop/Revature/Project2/Test Backend/testBackEnd/target/classes:/home/luft/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/luft/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/luft/.m2/repository/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar:/home/luft/.m2/repository/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar:"/>
+    <property name="java.class.path" value="/home/luft/Desktop/Revature/Project2/project-2-do-we-need-a-team-name/Test Backend/testBackEnd/target/test-classes:/home/luft/Desktop/Revature/Project2/project-2-do-we-need-a-team-name/Test Backend/testBackEnd/target/classes:/home/luft/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/luft/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/luft/.m2/repository/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar:/home/luft/.m2/repository/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar:"/>
     <property name="java.vm.vendor" value="Private Build"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
@@ -17,20 +17,20 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
-    <property name="sun.java.command" value="/home/luft/Desktop/Revature/Project2/Test Backend/testBackEnd/target/surefire/surefirebooter8611234664860102320.jar /home/luft/Desktop/Revature/Project2/Test Backend/testBackEnd/target/surefire 2019-08-09T19-01-14_555-jvmRun1 surefire5107531293658978098tmp surefire_05223705145080061981tmp"/>
-    <property name="surefire.test.class.path" value="/home/luft/Desktop/Revature/Project2/Test Backend/testBackEnd/target/test-classes:/home/luft/Desktop/Revature/Project2/Test Backend/testBackEnd/target/classes:/home/luft/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/luft/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/luft/.m2/repository/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar:/home/luft/.m2/repository/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar:"/>
+    <property name="sun.java.command" value="/home/luft/Desktop/Revature/Project2/project-2-do-we-need-a-team-name/Test Backend/testBackEnd/target/surefire/surefirebooter8946841838394647533.jar /home/luft/Desktop/Revature/Project2/project-2-do-we-need-a-team-name/Test Backend/testBackEnd/target/surefire 2019-08-12T09-27-04_995-jvmRun1 surefire6979533412474567756tmp surefire_04106975506988419628tmp"/>
+    <property name="surefire.test.class.path" value="/home/luft/Desktop/Revature/Project2/project-2-do-we-need-a-team-name/Test Backend/testBackEnd/target/test-classes:/home/luft/Desktop/Revature/Project2/project-2-do-we-need-a-team-name/Test Backend/testBackEnd/target/classes:/home/luft/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/luft/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/luft/.m2/repository/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar:/home/luft/.m2/repository/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/home/luft"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="java.home" value="/usr/lib/jvm/java-8-openjdk-amd64/jre"/>
-    <property name="basedir" value="/home/luft/Desktop/Revature/Project2/Test Backend/testBackEnd"/>
+    <property name="basedir" value="/home/luft/Desktop/Revature/Project2/project-2-do-we-need-a-team-name/Test Backend/testBackEnd"/>
     <property name="file.separator" value="/"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/luft/Desktop/Revature/Project2/Test Backend/testBackEnd/target/surefire/surefirebooter8611234664860102320.jar"/>
+    <property name="surefire.real.class.path" value="/home/luft/Desktop/Revature/Project2/project-2-do-we-need-a-team-name/Test Backend/testBackEnd/target/surefire/surefirebooter8946841838394647533.jar"/>
     <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="1.8.0_222-8u222-b10-1ubuntu1~19.04.1-b10"/>
@@ -45,7 +45,7 @@
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="java.io.tmpdir" value="/tmp"/>
     <property name="java.version" value="1.8.0_222"/>
-    <property name="user.dir" value="/home/luft/Desktop/Revature/Project2/Test Backend/testBackEnd"/>
+    <property name="user.dir" value="/home/luft/Desktop/Revature/Project2/project-2-do-we-need-a-team-name/Test Backend/testBackEnd"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>

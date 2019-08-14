@@ -1,4 +1,4 @@
-package main.java.com.revature;
+package com.revature;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -17,7 +17,7 @@ import javax.servlet.http.*;
 
 public class Servlet extends HttpServlet{
     private static final long serialVersionUID = 1L;
-    String output = "{\"username\": \"Luft\", \"firstname\": \"Sean\", \"lastname\": \"Mc\"}";
+    String output = "[{\"username\": \"Luft\", \"firstname\": \"Sean\", \"lastname\": \"Mc\"}]";
 //     Gson gson;
 //     public Servlet(){
 //         gson = new Gson();
@@ -29,7 +29,7 @@ public class Servlet extends HttpServlet{
 
 public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
 //  Connection connection = this.ConnectionUtil();
-response.setContentType("text/plain");
+response.setContentType("application/json");
 response.getWriter().write(output);
 // System.out.println(gson);
 

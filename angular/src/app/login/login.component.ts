@@ -4,6 +4,8 @@ import { LoginServiceService } from '../login-service.service';
 import { Login } from './Login';
 import { Observable} from 'rxjs';
 import {map} from 'rxjs/operators'
+import { RouterModule, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,7 @@ export class LoginComponent implements OnInit {
   userInfo;
   loginInfo: Login;
 
-  constructor(private formBuilder: FormBuilder, private loginService: LoginServiceService) {
+  constructor(private formBuilder: FormBuilder, private loginService: LoginServiceService, private RouterModule: RouterModule, private router: Router) {
   };
 
   ngOnInit() {
@@ -32,9 +34,15 @@ export class LoginComponent implements OnInit {
     // this.userInfo = this.loginService.getLogin(this.f.username.value, this.f.password.value);
     // this.loginInfo.username = this.f.username.value;
     // this.loginInfo.password = this.f.password.value;
-    // this. userInfo = this.loginService.getLogin(this.loginInfo);
-    this.loginService.getLogin().pipe(map(response => {this.userInfo = response;
+    //this. userInfo = this.loginService.getLogin();
+    this.loginService.getLogin().pipe(map(response => {
+      this.userInfo = response;
+      localStorage.setItem("username", this.userInfo.username);
+      localStorage.setItem("firstname", this.userInfo.firstname);
+      localStorage.setItem("lastname", this.userInfo.lastname);
     console.log(this.userInfo)}
-    )).subscribe();
+    )).subscribe(data => {
+      this.router.navigate(['home']);
+    });
   }
 }

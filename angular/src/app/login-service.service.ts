@@ -19,7 +19,7 @@ httpOptions = {
     //  this.json =JSON.stringify({username: username, password: password});
     return this.http.post<Login[]>(this.url, login, this.httpOptions);
   }
-  getLogin(): Observable<Login[]> {
+  getLogin() {
     return this.http.get<Login[]>(this.url);
   }
 }

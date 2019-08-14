@@ -1,0 +1,13 @@
+<p>
+  home works!
+</p>
+
+<ul class="nowPlaying">
+  <li ng-repeat="nowPlaying.results in $ctrl.nowPlaying.results | filter:$ctrl.query" class="thumbnail">
+    <!-- <a href="#!/phones/{{phone.id}}" class="thumb"> -->
+      <img [attr.src]="nowPlaying.imageUrl" alt="{{nowPlaying.results.title}}" />
+    <!-- </a> -->
+    <!-- <a href="#!/phones/{{phone.id}}">{{phone.name}}</a> -->
+    <p>{{nowPlaying.overview}}</p>
+  </li>
+</ul>

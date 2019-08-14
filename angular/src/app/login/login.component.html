@@ -24,5 +24,7 @@
     </div>
 </form>
 <div>
-<p *ngFor="let l of userInfo | async">{{l.firstname}}</p>
+<p *ngFor="let l of userInfo">
+<label>{{l.firstname}}</label>
+</p>
 </div> 
