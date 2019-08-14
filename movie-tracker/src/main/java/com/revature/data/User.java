@@ -30,6 +30,9 @@ public class User {
     // "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$")
     private String password;
 
+    @Column (name = "guestid")
+    private String guestid;
+
     public int getUserid() {
         return userid;
     }
@@ -54,6 +57,14 @@ public class User {
         this.password = password;
     }
 
+    public String getGuestid() {
+        return guestid;
+    }
+
+    public void setGuestid(String guestid) {
+        this.guestid = guestid;
+    }
+
     public User(int userid, String username, String password) {
         this.userid = userid;
         this.username = username;
@@ -68,6 +79,7 @@ public class User {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
+        result = prime * result + ((guestid == null) ? 0 : guestid.hashCode());   
         result = prime * result + ((password == null) ? 0 : password.hashCode());
         result = prime * result + userid;
         result = prime * result + ((username == null) ? 0 : username.hashCode());
@@ -83,6 +95,11 @@ public class User {
         if (getClass() != obj.getClass())
             return false;
         User other = (User) obj;
+        if (guestid == null) {
+            if (other.guestid != null)
+                return false;
+        } else if (!guestid.equals(other.guestid))
+            return false;
         if (password == null) {
             if (other.password != null)
                 return false;
@@ -99,8 +116,17 @@ public class User {
     }
 
     @Override
-    public String toString() {
-        return "User [password=" + password + ", userid=" + userid + ", username=" + username + "]";
+	public String toString() {
+		return "User [guestid=" + guestid + ", password="
+				+ password + ", userid=" + userid + ", username=" + username + "]";
+	}
+
+    public User(int userid, @NotBlank String username, @NotBlank String password, String firstname, String lastname,
+            String guestid) {
+        this.userid = userid;
+        this.username = username;
+        this.password = password;
+        this.guestid = guestid;
     }
 
 }
