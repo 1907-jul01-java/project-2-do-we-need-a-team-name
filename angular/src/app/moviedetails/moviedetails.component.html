@@ -1,38 +1,58 @@
-<button (click)="displayMovie('knight')">Testing</button>
+<!-- <button (click)="displayMovie('19404')">Testing</button> -->
+<section>
+  <div style="width:1400px; height:450px; background-repeat: no-repeat; background-position: 50% 50%; z-index: -1;"
+    [ngStyle]="{background: 'url(https://image.tmdb.org/t/p/w1400_and_h450_face' + movie.backdrop_path + ')'}">
+  </div>
+</section>
 
-<p>
-  <strong>Genre: </strong>
-  <span *ngFor="let genre of movie.genres; let i=index">
-    <span *ngIf="movie.genres.length -1 > i; else noComma">
-      {{ genre.name }},
-    </span>
-    <ng-template #noComma>{{ genre.name }}</ng-template>
-  </span>
-</p>
-<p>
-  <strong>Description: </strong>
-  {{ movie.overview }}
-</p>
-<p>
-  <strong>Production countries: </strong>
-  <span *ngFor="let country of movie.production_countries; let i=index">
-    <span *ngIf="movie.production_countries.length -1 > i; else noComma">
-      {{ country.name }},
-    </span>
-    <ng-template #noComma>{{ country.name }}</ng-template>
-  </span>
-</p>
-<p>
-  <strong>Production companies: </strong>
-  <span *ngFor="let company of movie.production_companies; let i=index">
-    <span *ngIf="movie.production_companies.length -1 > i; else noComma">
-      {{ company.name }},
-    </span>
-    <ng-template #noComma>{{ company.name }}</ng-template>
-  </span>
-</p>
-<p>
-  <strong>
-    <a href="{{ imdbLink }}/{{ movie.imdb_id}}">Go to IMDB</a>
-  </strong>
-</p>
+
+<div
+  style="background-image: radial-gradient(circle at 20% 50%, rgba(11.76%, 15.29%, 17.25%, 0.98) 0%, rgba(19.61%, 21.96%, 23.53%, 0.88) 100%);">
+  <div style="width: 50%; float: left">
+    <img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}" style="float: right; padding-right: 50px">
+  </div>
+  <div style="width: 50%; float: right">
+    <p>
+      <strong>Genre: </strong>
+      <span *ngFor=" let genre of movie.genres; let i=index">
+        <span *ngIf="movie.genres.length -1 > i; else noComma">
+          {{ genre.name }},
+        </span>
+        <ng-template #noComma>{{ genre.name }}</ng-template>
+      </span>
+    </p>
+    <p>
+      <strong>Description: </strong>
+      {{ movie.overview }}
+    </p>
+    <p>
+      <strong>Production countries: </strong>
+      <span *ngFor="let country of movie.production_countries; let i=index">
+        <span *ngIf="movie.production_countries.length -1 > i; else noComma">
+          {{ country.name }},
+        </span>
+        <ng-template #noComma>{{ country.name }}</ng-template>
+      </span>
+    </p>
+    <p>
+      <strong>Production companies: </strong>
+      <span *ngFor="let company of movie.production_companies; let i=index">
+        <span *ngIf="movie.production_companies.length -1 > i; else noComma">
+          {{ company.name }},
+        </span>
+        <ng-template #noComma>{{ company.name }}</ng-template>
+      </span>
+    </p>
+    <p>
+      <strong>
+        <a href="{{ imdbLink }}/{{ movie.imdb_id}}">Go to IMDB</a>
+      </strong>
+    </p>
+  </div>
+</div>
+
+
+
+<!-- <img src="https://image.tmdb.org/t/p/original{{movie.backdrop_path}}" width="100%"
+  style="background-image: radial-gradient(circle at 20% 50%, rgba(11.76%, 15.29%, 17.25%, 0.98) 0%, rgba(19.61%, 21.96%, 23.53%, 0.88) 100%)"> -->
+<br>
