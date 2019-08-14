@@ -29,9 +29,12 @@ export class HomeComponent implements OnInit {
     // })).subscribe();
     this.HomeService.getNowPlaying().subscribe(response => {
       this.nowPlaying = response['results'];
-      
+      this.nowPlaying.forEach(function() {
+        this.nowPlaying.imageURL = (this.ConfigService.getListImage() + this.nowPlaying['poster_path']);
       });
-      console.log(this.nowPlaying);
+      
+      console.log(this.nowPlaying)
+      });
     this.topRated = this.HomeService.getTopRated();
     this.Popular = this.HomeService.getPopular();
   }
