@@ -13,6 +13,12 @@ movie-tracker/target
 movie-tracker/.classpath
 movie-tracker/.project
 movie-tracker/.settings
+<<<<<<< HEAD
 
 .vscode
 target
+=======
+.vscode/launch.json
+.vscode/settings.json
+movie-tracker/target/
+>>>>>>> angular

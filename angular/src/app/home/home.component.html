@@ -1,0 +1,23 @@
+<p>
+  home works!
+</p>
+
+<div [innerHTML]= "nowPlayinDisplay"></div>
+
+<ul>
+  <li *ngFor= 'let n of nowPlaying'>
+    <p>{{n.title}}</p>
+  </li>
+</ul>
+
+<!-- <p>{{nowPlaying.title}}</p> -->
+
+<!-- <ul class="nowPlaying">
+  <li *ngFor= "let results of nowPlaying" class="thumbnail">
+     <a href="#!/phones/{{phone.id}}" class="thumb">
+      <img [attr.src]="results.imageUrl" alt="{{results['title']}}" />
+    </a> -->
+    <!-- <a href="#!/phones/{{phone.id}}">{{phone.name}}</a>
+    <p>{{results[0]['title']}}</p>
+    </li>
+</ul> -->
