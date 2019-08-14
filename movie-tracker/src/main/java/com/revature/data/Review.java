@@ -1,15 +1,16 @@
 package com.revature.data;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -24,25 +25,37 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int reviewid;
 
-    @OneToOne(targetEntity = com.revature.data.User.class)
-    @JoinColumn(name = "userid")
-    @NotBlank
-    private int userid;
+    @Column(name = "usern", nullable = false)
+    @NotNull
+    private String usern;
 
     @Column(name = "movie", nullable = false)
     @NotBlank
     private String movie;
 
     @Column(name = "rating", nullable = false)
-    @NotBlank
+    @NotNull
     private int rating;
 
     @Column(name = "time_created", nullable = false)
-    @NotBlank
-    private String time_created;
+    // @NotBlank
+    private LocalDateTime time_created = LocalDateTime.now();
 
     @Column(name = "review_body")
     private String review_body;
+
+    public Review() {
+        super();
+    }
+
+    public Review(@NotNull String usern, @NotBlank String movie, @NotNull int rating, LocalDateTime time_created,
+            String review_body) {
+        this.usern = usern;
+        this.movie = movie;
+        this.rating = rating;
+        this.time_created = time_created;
+        this.review_body = review_body;
+    }
 
     public int getReviewid() {
         return reviewid;
@@ -52,12 +65,12 @@ public class Review {
         this.reviewid = reviewid;
     }
 
-    public int getUserid() {
-        return userid;
+    public String getUsern() {
+        return usern;
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setUsern(String usern) {
+        this.usern = usern;
     }
 
     public String getMovie() {
@@ -76,11 +89,11 @@ public class Review {
         this.rating = rating;
     }
 
-    public String getTime_created() {
+    public LocalDateTime getTime_created() {
         return time_created;
     }
 
-    public void setTime_created(String time_created) {
+    public void setTime_created(LocalDateTime time_created) {
         this.time_created = time_created;
     }
 
@@ -101,7 +114,7 @@ public class Review {
         result = prime * result + ((review_body == null) ? 0 : review_body.hashCode());
         result = prime * result + reviewid;
         result = prime * result + ((time_created == null) ? 0 : time_created.hashCode());
-        result = prime * result + userid;
+        result = prime * result + ((usern == null) ? 0 : usern.hashCode());
         return result;
     }
 
@@ -133,7 +146,10 @@ public class Review {
                 return false;
         } else if (!time_created.equals(other.time_created))
             return false;
-        if (userid != other.userid)
+        if (usern == null) {
+            if (other.usern != null)
+                return false;
+        } else if (!usern.equals(other.usern))
             return false;
         return true;
     }
@@ -141,19 +157,7 @@ public class Review {
     @Override
     public String toString() {
         return "Review [movie=" + movie + ", rating=" + rating + ", review_body=" + review_body + ", reviewid="
-                + reviewid + ", time_created=" + time_created + ", userid=" + userid + "]";
+                + reviewid + ", time_created=" + time_created + ", usern=" + usern + "]";
     }
 
-    public Review(int reviewid, int userid, String movie, int rating, String time_created, String review_body) {
-        this.reviewid = reviewid;
-        this.userid = userid;
-        this.movie = movie;
-        this.rating = rating;
-        this.time_created = time_created;
-        this.review_body = review_body;
-    }
-
-    public Review() {
-        super();
-    }
 }

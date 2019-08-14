@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import com.revature.data.User;
 
 import org.hibernate.Session;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-@Repository
 @Transactional
+@Repository
 public class UserRepository {
 
-    @Autowired
+    @PersistenceContext
     private EntityManager entityManager;
 
     private Session getSession() {

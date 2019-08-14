@@ -7,7 +7,7 @@ create table users (
 );
 create table reviews (
   reviewid serial not null primary key,
-  userid integer not null REFERENCES users(userid),
+  usern text not null REFERENCES users(username),
   movie text not null,
   rating integer not null CHECK (
     rating >= 0
@@ -21,10 +21,10 @@ insert into
 VALUES
   ('test', 'password');
 insert into
-  reviews (userid, movie, rating, review_body)
+  reviews (usern, movie, rating, review_body)
 VALUES
   (
-    1,
+    'test',
     'Shrek 2',
     8,
     'I can''t believe how good this movie is!'

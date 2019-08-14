@@ -15,6 +15,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Table(name = "users")
 @EntityListeners(AuditingEntityListener.class)
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userid;
@@ -29,6 +30,10 @@ public class User {
     // @Pattern(regexp =
     // "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$")
     private String password;
+
+    public User() {
+        super();
+    }
 
     public int getUserid() {
         return userid;
@@ -52,16 +57,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public User(int userid, String username, String password) {
-        this.userid = userid;
-        this.username = username;
-        this.password = password;
-    }
-
-    public User() {
-        super();
     }
 
     @Override
@@ -101,6 +96,12 @@ public class User {
     @Override
     public String toString() {
         return "User [password=" + password + ", userid=" + userid + ", username=" + username + "]";
+    }
+
+    public User(int userid, @NotBlank String username, @NotBlank String password) {
+        this.userid = userid;
+        this.username = username;
+        this.password = password;
     }
 
 }
