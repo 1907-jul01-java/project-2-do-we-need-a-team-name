@@ -1,8 +1,14 @@
-<nav>
-  <li><a href='/'>
-  <img src='http://image.tmdb.org/t/p/w154'
-  </a></li>
-  <li><a routerLink="/login" style="display: inline;">Login</a></li>
-  <li><a routerLink="/register" style="display: inline;">Register</a></li>
-</nav>
+<ul class="nav">
+  <a class="tmdblogo" href='/'>
+    <img
+      src='https://www.themoviedb.org/assets/2/v4/logos/408x161-powered-by-rectangle-green-bb4301c10ddc749b4e79463811a68afebeae66ef43d17bcfd8ff0e60ded7ce99.png'
+      width="100px">
+  </a>
+  <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/">Home</a></li>
+  <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
+  <li routerLinkActive="active"><a routerLink="/register">Register</a></li>
+</ul>
+
+
+
 <router-outlet></router-outlet>

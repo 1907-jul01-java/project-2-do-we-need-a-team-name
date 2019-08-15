@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ConfigService } from '../config.service';
 import { MoviedetailsService } from '../moviedetails.service';
 import { ActivatedRoute } from '@angular/router';
+import { ReviewsComponent } from '../reviews/reviews.component';
 
 @Component({
   selector: 'app-moviedetails',
@@ -14,10 +15,12 @@ export class MoviedetailsComponent implements OnInit {
 
   ngOnInit() {
     this.movie = this.route.snapshot.paramMap.get("movie");
+    this.displayMovie(this.movie);
   }
   displayMovie(id) {
     this.details.getMovie(id).subscribe((response) => { this.movie = response; });
   }
+
 
   // displayMovie(title) {
   //   this.details.getTitle(title).subscribe((response) => { this.movie = response; });
