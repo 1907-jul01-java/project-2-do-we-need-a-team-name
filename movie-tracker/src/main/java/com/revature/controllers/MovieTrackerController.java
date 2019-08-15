@@ -8,7 +8,7 @@ import com.revature.repositories.MovieTrackerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.web.bind.annotation.CrossOrigin;
 // import org.springframework.web.bind.annotation.GetMapping;
-// import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 // import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,7 +52,7 @@ public class MovieTrackerController {
     @RequestMapping("/updateTracker")
     public ArrayList<MovieTracker> updateMovieTracker(@RequestBody MovieTracker movieTracker) {
         ArrayList<MovieTracker> list = new ArrayList<MovieTracker>();
-        list.add(movieTrackerRepository.updateMyMovieTracker(movieTracker));
+        list = (ArrayList<MovieTracker>) movieTrackerRepository.updateMyMovieTracker(movieTracker);
         return list;
     }
 

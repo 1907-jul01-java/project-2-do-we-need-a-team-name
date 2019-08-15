@@ -24,17 +24,21 @@ public class MovieTrackerRepo {
     }
 
     @Transactional
-    public MovieTracker updateMyMovieTracker(MovieTracker movieTracker){
+    @SuppressWarnings("unchecked")
+    public List<MovieTracker> updateMyMovieTracker(MovieTracker movieTracker){
         //Update tracked and watched given username and movieid
-        getSession().createQuery("UPDATE MovieTracker set watched =:wa WHERE username = :un and movieid =:id")
+        List<MovieTracker> track = new ArrayList<MovieTracker>();
+        track = getSession().createQuery("UPDATE MovieTracker set watched =:wa"
+            + " WHERE username = :un and movieid =:id")
             .setParameter("wa", movieTracker.getWatched())
             .setParameter("un", movieTracker.getUsername())
-            .setParameter("id", movieTracker.getMovieid());
-        getSession().createQuery("UPDATE MovieTracker set tracked =:tr WHERE username = :un and movieid =:id")
-            .setParameter("tr", movieTracker.getTracked())
-            .setParameter("un", movieTracker.getUsername())
-            .setParameter("id", movieTracker.getMovieid());
-        return movieTracker;
+            .setParameter("id", movieTracker.getMovieid())
+            .list();
+        // getSession().createQuery("UPDATE MovieTracker set tracked =:tr WHERE username = :un and movieid =:id")
+        //     .setParameter("tr", movieTracker.getTracked())
+        //     .setParameter("un", movieTracker.getUsername())
+        //     .setParameter("id", movieTracker.getMovieid());
+        return track;
     }
 
     public MovieTracker postMovie(MovieTracker movieTracker){

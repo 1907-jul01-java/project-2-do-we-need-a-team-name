@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ConfigService } from './config.service';
 import { Observable } from 'rxjs';
+import { MovieTracker } from './tracker/MovieTracker';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +12,27 @@ export class TrackerService {
 
   constructor(private http: HttpClient) { }
 
-  // getTracked(){
-  //   this.url = ('https://api.themoviedb.org/3/movie/popular?api_key=' + this.ConfigService.getApiKey() + '&language=en-US&page=1');
-  //   return this.http.get(this.url);
-  // }
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
 
-  // getWatched(){
-  //   this.url = ('https://localhost:8080/getWatched?username={{username}}')
-  // }
+  getTracked(username){
+    this.url = (`https://localhost:8080/MovieTracker/getTracked?username=${username}`);
+    return this.http.get(this.url);
+  }
 
-}
+  getWatched(username){
+    this.url = (`https://localhost:8080/MovieTracker/getWatched?username=${username}`);
+    return this.http.get(this.url);
+  }
+
+  postTracker(movieTracker: MovieTracker){
+    return this.http.post<MovieTracker[]>(this.url, MovieTracker, this.httpOptions);
+  }
+
+  updateTracker(movieTracker){
+
+  }
+
