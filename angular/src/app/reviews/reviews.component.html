@@ -1,11 +1,15 @@
-
 <div>
-<h3>Rated {{avgScore}}/10 for {{numReviews}} Reviews</h3>
-<ul>
-  <li *ngFor= 'let r of reviews'>
-    <p>{{r.author}}</p>
-    <br>
-    <p>{{r.content}}</p>
-  </li>
-</ul>
+  <h3>Rated {{avgScore}}/10 for {{numReviews}} Reviews</h3>
+  <ul class="list">
+    <li *ngFor='let r of reviews' class="list-items">
+      <div class="card">
+        <br>
+        <h4>{{r.author}}</h4>
+        <br>
+        <p>{{r.content}}</p>
+        <br>
+      </div>
+    </li>
+
+  </ul>
 </div>
