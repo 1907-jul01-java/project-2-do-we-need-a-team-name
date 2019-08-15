@@ -23,9 +23,18 @@ public class MovieTrackerRepo {
         return entityManager.unwrap(Session.class);
     }
 
-    public void updateMyMovieTracker(MovieTracker movieTracker){
+    @Transactional
+    public MovieTracker updateMyMovieTracker(MovieTracker movieTracker){
         //Update tracked and watched given username and movieid
-        getSession().update(movieTracker);
+        getSession().createQuery("UPDATE MovieTracker set watched =:wa WHERE username = :un and movieid =:id")
+            .setParameter("wa", movieTracker.getWatched())
+            .setParameter("un", movieTracker.getUsername())
+            .setParameter("id", movieTracker.getMovieid());
+        getSession().createQuery("UPDATE MovieTracker set tracked =:tr WHERE username = :un and movieid =:id")
+            .setParameter("tr", movieTracker.getTracked())
+            .setParameter("un", movieTracker.getUsername())
+            .setParameter("id", movieTracker.getMovieid());
+        return movieTracker;
     }
 
     public MovieTracker postMovie(MovieTracker movieTracker){
@@ -35,10 +44,25 @@ public class MovieTrackerRepo {
 
     @Transactional
     @SuppressWarnings("unchecked")
-    public List<MovieTracker> listAllFromUsername( String username ){
+    public List<MovieTracker> listTrackedFromUsername( String username ){
         List<MovieTracker> tracks = new ArrayList<MovieTracker>();
-        tracks = getSession().createQuery("from movie_tracker where username = :un").setParameter("un", username).list();
+        tracks = getSession().createQuery("from MovieTracker t where username = :un and tracked = :tr")
+            .setParameter("un", username)
+            .setParameter("tr", true)
+            .list();
         return tracks;
     }
+    
+    @Transactional
+    @SuppressWarnings("unchecked")
+    public List<MovieTracker> listWatchedFromUsername( String username ){
+        List<MovieTracker> tracks = new ArrayList<MovieTracker>();
+        tracks = getSession().createQuery("from MovieTracker where username = :un and watched = :wa")
+        .setParameter("un", username)
+        .setParameter("wa", true)
+        .list();
+        return tracks;
+    }
+
 
 }
