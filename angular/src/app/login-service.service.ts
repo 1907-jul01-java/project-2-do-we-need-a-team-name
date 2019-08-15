@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginServiceService {
-  url: string = "http://localhost:8080/testBackEnd-1.0-SNAPSHOT/output";
+  url: string = "http://localhost:8080/login";
   constructor(private http: HttpClient) { }
 json;
 httpOptions = {
