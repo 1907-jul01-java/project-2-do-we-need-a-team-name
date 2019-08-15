@@ -5,12 +5,14 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { MoviedetailsComponent } from './moviedetails/moviedetails.component';
+import { TrackerComponent } from './tracker/tracker.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: '', component: HomeComponent },
-  { path: 'moviedetails/:movie', component: MoviedetailsComponent }
+  { path: 'moviedetails/:movie', component: MoviedetailsComponent },
+  { path: 'user', component: TrackerComponent}
 ];
 
 

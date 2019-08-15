@@ -11,8 +11,6 @@ import { HomeComponent } from './home/home.component';
 import { MoviedetailsComponent } from './moviedetails/moviedetails.component';
 import { TrackerComponent } from './tracker/tracker.component';
 import { ReviewsComponent } from './reviews/reviews.component';
-import { WatchedComponent } from './tracker/watched/watched.component';
-import { TrackedComponent } from './tracker/tracked/tracked.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +19,8 @@ import { TrackedComponent } from './tracker/tracked/tracked.component';
     RegisterComponent,
     HomeComponent,
     MoviedetailsComponent,
-    TrackerComponent
-    ReviewsComponent,
-    WatchedComponent,
-    TrackedComponent
+    TrackerComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,
