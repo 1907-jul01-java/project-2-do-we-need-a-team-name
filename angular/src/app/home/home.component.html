@@ -1,6 +1,6 @@
-<div align="left">
+<div>
   <h2>Now Playing</h2>
-  <ul>
+  <ul class="container">
     <li *ngFor='let n of nowPlaying' class='thumbnail'>
       <a href='/moviedetails/{{n.id}}' class='thumb'>
         <img src='http://image.tmdb.org/t/p/w154{{n.poster_path}}' alt='{{n.title}}'>
@@ -11,22 +11,24 @@
   </ul>
 </div>
 
-<div align="center">
+<div>
   <h2>Popular</h2>
-  <ul>
+  <ul class="container">
     <li *ngFor='let n of Popular' class='thumbnail'>
       <a href='/moviedetails/{{n.id}}' class='thumb'>
         <img src='http://image.tmdb.org/t/p/w154{{n.poster_path}}' alt='{{n.title}}'>
       </a>
+      <br>
       <p>{{n.title}}</p>
+      <br>
       <p>{{n.vote_average}}/10</p>
     </li>
   </ul>
 </div>
 
-<div align="right">
+<div>
   <h2>Top Rated</h2>
-  <ul>
+  <ul class="container">
     <li *ngFor='let n of topRated' class='thumbnail'>
       <a href='/moviedetails/{{n.id}}' class='thumb'>
         <img src='http://image.tmdb.org/t/p/w154{{n.poster_path}}' alt='{{n.title}}'>
