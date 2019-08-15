@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
-    this.userInfo = this.loginService.getLogin();
   };
 
   get f() { return this.loginForm.controls; }
@@ -35,7 +34,10 @@ export class LoginComponent implements OnInit {
     // this.loginInfo.username = this.f.username.value;
     // this.loginInfo.password = this.f.password.value;
     //this. userInfo = this.loginService.getLogin();
-    this.loginService.getLogin().pipe(map(response => {
+    console.log(this.f.username.value);
+    this.loginInfo.username = this.f.username.value;
+    this.loginInfo.password = this.f.password.value;
+    this.loginService.postLogin(this.loginInfo).pipe(map(response => {
       this.userInfo = response;
       sessionStorage.setItem("username", this.userInfo.username);
       sessionStorage.setItem("guestId", this.userInfo.guestid);
