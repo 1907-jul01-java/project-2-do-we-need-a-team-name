@@ -37,9 +37,8 @@ export class LoginComponent implements OnInit {
     //this. userInfo = this.loginService.getLogin();
     this.loginService.getLogin().pipe(map(response => {
       this.userInfo = response;
-      localStorage.setItem("username", this.userInfo.username);
-      localStorage.setItem("firstname", this.userInfo.firstname);
-      localStorage.setItem("lastname", this.userInfo.lastname);
+      sessionStorage.setItem("username", this.userInfo.username);
+      sessionStorage.setItem("guestId", this.userInfo.guestid);
     console.log(this.userInfo)}
     )).subscribe(data => {
       this.router.navigate(['home']);

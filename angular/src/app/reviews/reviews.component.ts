@@ -12,9 +12,19 @@ export class ReviewsComponent implements OnInit {
 reviews;
 avgScore;
 numReviews;
+loggedIn: boolean;
+guestId;
   constructor(private MoviedetailsService: MoviedetailsService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    if(sessionStorage.getItem("username")){
+      this.loggedIn = true;
+    }
+    else{
+      this.loggedIn = false;
+    }
+    
+
     this.movie = this.route.snapshot.paramMap.get("movie");
     this.MoviedetailsService.getReviews(this.movie).subscribe(response => {
       this.reviews = response["results"];
@@ -27,4 +37,11 @@ numReviews;
     });
   }
 
+
+  onClick(){
+    this.guestId = sessionStorage.getItem("guestId");
+    if(this.guestId){
+
+    }
+  }
 }

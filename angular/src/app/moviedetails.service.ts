@@ -24,4 +24,9 @@ export class MoviedetailsService {
     this.url = (`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${this.config.getApiKey()}&language=en-US&page=1`);
     return this.http.get(this.url);
   }
+
+  postRating(movieId, guestId, rating){
+    this.url = (`https://api.themoviedb.org/3/movie/${movieId}/rating?api_key=${this.config.getApiKey()}&guest_session_id=${guestId}`);
+    return this.http.post(this.url, JSON.parse(`{ "value": ${rating}}`));
+  }
 }
