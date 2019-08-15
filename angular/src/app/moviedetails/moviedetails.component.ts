@@ -20,6 +20,7 @@ export class MoviedetailsComponent implements OnInit {
     this.details.getMovie(id).subscribe((response) => { this.movie = response; });
   }
 
+
   // displayMovie(title) {
   //   this.details.getTitle(title).subscribe((response) => { this.movie = response; });
   // }
