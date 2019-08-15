@@ -49,12 +49,15 @@ public class MovieTrackerController {
         return list;
     }
 
+    // @RequestMapping("/updateTracker")
+    // public ArrayList<MovieTracker> updateMovieTracker(@RequestBody MovieTracker movieTracker) {
+    //     ArrayList<MovieTracker> list = new ArrayList<MovieTracker>();
+    //     list = (ArrayList<MovieTracker>) movieTrackerRepository.updateMyMovieTracker(movieTracker);
+    //     return list;
+    // }
+
     @RequestMapping("/updateTracker")
-    public ArrayList<MovieTracker> updateMovieTracker(@RequestBody MovieTracker movieTracker) {
-        ArrayList<MovieTracker> list = new ArrayList<MovieTracker>();
-        list = (ArrayList<MovieTracker>) movieTrackerRepository.updateMyMovieTracker(movieTracker);
-        return list;
+    public void updateMovieTracker(@RequestBody MovieTracker movieTracker) {
+        movieTrackerRepository.updateMyMovieTracker(movieTracker);
     }
-
-
 }
