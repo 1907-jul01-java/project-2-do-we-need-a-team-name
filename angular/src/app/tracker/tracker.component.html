@@ -1,3 +1,40 @@
-<p>
-  tracker works!
-</p>
+<div>
+  <h2>Watched</h2>
+  <ul class="container">
+    <li *ngFor='let n of Watched' class='thumbnail'>
+      <a href='/moviedetails/{{n.id}}' class='thumb'>
+        <img src='http://image.tmdb.org/t/p/w154{{n.poster_path}}' alt='{{n.title}}'>
+      </a>
+      <p>{{n.title}}</p>
+      <p>{{n.vote_average}}/10</p>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h2>Tracked</h2>
+  <ul class="container">
+    <li *ngFor='let n of Tracked' class='thumbnail'>
+      <a href='/moviedetails/{{n.id}}' class='thumb'>
+        <img src='http://image.tmdb.org/t/p/w154{{n.poster_path}}' alt='{{n.title}}'>
+      </a>
+      <br>
+      <p>{{n.title}}</p>
+      <br>
+      <p>{{n.vote_average}}/10</p>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h2>Top Rated</h2>
+  <ul class="container">
+    <li *ngFor='let n of topRated' class='thumbnail'>
+      <a href='/moviedetails/{{n.id}}' class='thumb'>
+        <img src='http://image.tmdb.org/t/p/w154{{n.poster_path}}' alt='{{n.title}}'>
+      </a>
+      <p>{{n.title}}</p>
+      <p>{{n.vote_average}}/10</p>
+    </li>
+  </ul>
+</div>
