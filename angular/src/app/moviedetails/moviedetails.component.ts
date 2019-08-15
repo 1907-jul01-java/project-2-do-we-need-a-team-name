@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ConfigService } from '../config.service';
 import { MoviedetailsService } from '../moviedetails.service';
 import { ActivatedRoute } from '@angular/router';
+import { ReviewsComponent } from '../reviews/reviews.component';
 
 @Component({
   selector: 'app-moviedetails',
