@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         response => {
           sessionStorage.setItem('username', response.username)
-          this.router.navigate(['']);
+          this.router.navigate(['/user']);
         });
     //this.loginService.postLogin()
     // this.userInfo = this.loginService.getLogin(this.f.username.value, this.f.password.value);
