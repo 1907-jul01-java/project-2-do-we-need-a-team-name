@@ -24,24 +24,6 @@ public class MovieTrackerRepo {
         return entityManager.unwrap(Session.class);
     }
 
-    // @Transactional
-    // // @SuppressWarnings("unchecked")
-    // public void updateMyMovieTracker(MovieTracker movieTracker){
-    //     //Update tracked and watched given username and movieid
-    //     // List<MovieTracker> track = new ArrayList<MovieTracker>();
-    //     getSession().createQuery("UPDATE MovieTracker set watched =:wa"
-    //         + " WHERE username = :un and movieid =:id")
-    //         .setParameter("wa", movieTracker.getWatched())
-    //         .setParameter("un", movieTracker.getUsername())
-    //         .setParameter("id", movieTracker.getMovieid())
-    //         .list();
-    //     getSession().createQuery("UPDATE MovieTracker set tracked =:tr WHERE username = :un and movieid =:id")
-    //         .setParameter("tr", movieTracker.getTracked())
-    //         .setParameter("un", movieTracker.getUsername())
-    //         .setParameter("id", movieTracker.getMovieid());
-    //     // return track;
-    // }
-
     public void updateMyMovieTracker(MovieTracker movieTracker){
         getSession().merge("MovieTracker", movieTracker);
     }
