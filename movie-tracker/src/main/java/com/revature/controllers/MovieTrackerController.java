@@ -54,4 +54,9 @@ public class MovieTrackerController {
     public void updateMovieTracker(@RequestBody MovieTracker movieTracker) {
         movieTrackerRepository.updateMyMovieTracker(movieTracker);
     }
+
+    @RequestMapping("/deleteTracker")
+    public void deleteMovieTracker(@RequestBody MovieTracker movieTracker) {
+        movieTrackerRepository.deleteMovieTracker(movieTracker);
+    }
 }

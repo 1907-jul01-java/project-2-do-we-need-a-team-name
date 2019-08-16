@@ -90,9 +90,9 @@ insert into
 VALUES
   ( 
     'User',
-    '',
+    '531309',
     false,
-    false
+    true
   );
 insert into
   movie_tracker (username, movieid, watched, tracked)

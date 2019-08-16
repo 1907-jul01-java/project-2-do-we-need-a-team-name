@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import com.revature.data.MovieTracker;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -42,19 +43,36 @@ public class MovieTrackerRepo {
     // }
 
     public void updateMyMovieTracker(MovieTracker movieTracker){
-        getSession().update("MovieTracker", movieTracker);
+        getSession().merge("MovieTracker", movieTracker);
     }
 
+    // public MovieTracker postMovie(MovieTracker movieTracker){
+    //     getSession().persist("MovieTracker", movieTracker);
+    //     return movieTracker;
+    // }
+
     public MovieTracker postMovie(MovieTracker movieTracker){
-        getSession().persist("MovieTracker", movieTracker);
+        try{
+            getSession().get("MovieTracker", movieTracker.getId());
+        }
+        catch (HibernateException e) {
+            getSession().persist("MovieTracker", movieTracker);
+        }
         return movieTracker;
+    }
+    
+    public void deleteMovieTracker(MovieTracker movieTracker){
+        getSession().createQuery("delete MovieTracker where id = :id")
+        .setParameter("id", movieTracker.getId())
+        .executeUpdate();
+
     }
 
     @Transactional
     @SuppressWarnings("unchecked")
     public List<MovieTracker> listTrackedFromUsername( String username ){
         List<MovieTracker> tracks = new ArrayList<MovieTracker>();
-        tracks = getSession().createQuery("from MovieTracker t where username = :un and tracked = :tr")
+        tracks = getSession().createQuery("from MovieTracker where username = :un and tracked = :tr")
             .setParameter("un", username)
             .setParameter("tr", true)
             .list();
@@ -71,6 +89,4 @@ public class MovieTrackerRepo {
         .list();
         return tracks;
     }
-
-
 }
