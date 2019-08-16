@@ -19,6 +19,7 @@ export class TrackerComponent implements OnInit {
   userInfo;
   movieTracker: MovieTracker;
   currentUser: Login;
+  
 
   constructor(private tracker: TrackerService, private details: MoviedetailsService,
        private route: ActivatedRoute, private configService: ConfigService ) {
@@ -28,6 +29,8 @@ export class TrackerComponent implements OnInit {
   Tracked;
   Watched;
   movie;
+  track = [];
+  watch = [];
 
   // topRated;
   // Popular;
@@ -36,34 +39,55 @@ export class TrackerComponent implements OnInit {
     // this.movie = this.route.snapshot.paramMap.get("movie");
     // 
 
-    this.tracker.getTracked("joshua").subscribe(response => {
+    this.tracker.getTracked("User").subscribe(response => {
       this.Tracked = response;
-      console.log(this.Tracked)
-      
-      this.Tracked.forEach(
-        function(obj) {
-          this.displayMovie(this.obj.movieid);
-        }
-      ); 
+      console.log(this.Tracked);
 
+      for (var i=0; i<this.Tracked.length;i++){
+        var obj = this.Tracked[i];
+        // console.log(obj.movieid);
+        
+        // this.displayMovie(obj.movieid);
+        this.details.getMovie(obj.movieid).subscribe((response) => { 
+          this.movie = response;
+          this.track.push(this.movie); 
+        });
+        }
+        console.log(this.track);
       });
     
     
       
 
-    // this.tracker.getWatched("joshua").subscribe(response => {
-    //   this.Watched = response['results'];
-    //   console.log(this.Watched);
-    // });
+    this.tracker.getWatched("User").subscribe(response => {
+      this.Watched = response;
+      console.log(this.Watched);
 
-    // this.tracker.postTracker(m ovieTracker).subscribe(response => {
+      for (var i=0; i<this.Watched.length;i++){
+        var obj = this.Watched[i];
+        // console.log(obj.movieid);
+        
+        // this.displayMovie(obj.movieid);
+        this.details.getMovie(obj.movieid).subscribe((response) => { 
+          this.movie = response;
+          this.watch.push(this.movie); 
+        });
+        }
+        console.log(this.watch);
+      });
+
+    // this.tracker.postTracker(movieTracker).subscribe(response => {
     //   this.topRated = response['results'];
     //   console.log(this.topRated);
     // });
   }
 
-  displayMovie(id) {
-    this.details.getMovie(id).subscribe((response) => { this.movie = response; });
-  }
+  // displayMovie(id) {
+  //   this.details.getMovie(id).subscribe((response) => { 
+  //     this.movie = response;
+  //     console.log(this.movie);
+  //   });
+  //   return this.movie;
+  // }
 
 }
