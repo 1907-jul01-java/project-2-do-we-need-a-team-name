@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators, FormGroup} from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { LoginServiceService } from '../login-service.service';
 import { Login } from './Login';
-import { Observable} from 'rxjs';
-import {map} from 'rxjs/operators'
+import { Observable } from 'rxjs';
+import { map, first } from 'rxjs/operators'
 import { RouterModule, Router } from '@angular/router';
 
 
@@ -14,7 +14,7 @@ import { RouterModule, Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  userInfo;
+  userInfo: Login;
   loginInfo: Login;
 
   constructor(private formBuilder: FormBuilder, private loginService: LoginServiceService, private RouterModule: RouterModule, private router: Router) {
@@ -29,21 +29,29 @@ export class LoginComponent implements OnInit {
 
   get f() { return this.loginForm.controls; }
 
-  OnSubmit(){
+  OnSubmit() {
+    this.loginService.postLogin({ 'username': this.f.username.value, 'password': this.f.password.value })
+      .pipe(first())
+      .subscribe(
+        response => {
+          sessionStorage.setItem('username', response.username)
+          this.router.navigate(['']);
+        });
+    //this.loginService.postLogin()
     // this.userInfo = this.loginService.getLogin(this.f.username.value, this.f.password.value);
     // this.loginInfo.username = this.f.username.value;
     // this.loginInfo.password = this.f.password.value;
     //this. userInfo = this.loginService.getLogin();
-    console.log(this.f.username.value);
-    this.loginInfo.username = this.f.username.value;
-    this.loginInfo.password = this.f.password.value;
-    this.loginService.postLogin(this.loginInfo).pipe(map(response => {
-      this.userInfo = response;
-      sessionStorage.setItem("username", this.userInfo.username);
-      sessionStorage.setItem("guestId", this.userInfo.guestid);
-    console.log(this.userInfo)}
-    )).subscribe(data => {
-      this.router.navigate(['home']);
-    });
+    // this.loginInfo.username = this.f.username.value;
+    // this.loginInfo.pw = this.f.pw.value;
+    // console.log(this.loginInfo);
+    // this.loginService.postLogin(this.loginInfo).pipe(map(response => {
+    //   this.userInfo = response;
+    //   sessionStorage.setItem("username", this.userInfo.username);
+    //   sessionStorage.setItem("guestId", this.userInfo.guestid);
+    // }
+    // )).subscribe(data => {
+    //   this.router.navigate(['home']);
+    // });
   }
 }

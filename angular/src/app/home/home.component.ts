@@ -19,10 +19,11 @@ export class HomeComponent implements OnInit {
   Popular;
 
   ngOnInit() {
+    console.log(sessionStorage.getItem("username"));
     this.HomeService.getNowPlaying().subscribe(response => {
       this.nowPlaying = response['results'];
       console.log(this.nowPlaying)
-      });
+    });
     this.HomeService.getPopular().subscribe(response => {
       this.Popular = response['results'];
       console.log(this.Popular);

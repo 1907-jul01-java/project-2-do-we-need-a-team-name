@@ -37,16 +37,20 @@ public class UserRepository {
         if (users.size() > 0) {
             return users.get(0);
         } else {
-            return null;
+            User userError = new User("wrongusername", "wrongpass");
+            return userError;
         }
     }
 
     public User authenticate(String username, String password) {
+        System.out.println(username);
+        System.out.println(password);
         User user = findByUsername(username);
         if (user.getPassword().equals(password)) {
             return user;
         } else {
-            return null;
+            User userError = new User("wrongusername", "wrongpass");
+            return userError;
         }
     }
 }
