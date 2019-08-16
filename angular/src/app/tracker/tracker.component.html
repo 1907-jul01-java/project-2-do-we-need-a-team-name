@@ -1,0 +1,42 @@
+<div>
+  <h2>Watched</h2>
+  <ul class="container">
+    <li *ngFor='let n of watch' class='thumbnail'>
+      <a href='/moviedetails/{{n.movieid}}' class='thumb'>
+        <img src='http://image.tmdb.org/t/p/w154{{n.poster_path}}' alt='{{n.title}}'>
+      </a>
+      <p>{{n.title}}</p>
+      Add form for movie scoring -->
+      <p>{{n.vote_average}}/10</p>
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h2>Tracked</h2>
+  <ul class="container">
+    <li *ngFor='let n of track' class='thumbnail'>
+      <a href='/moviedetails/{{n.id}}' class='thumb'>
+        <img src='http://image.tmdb.org/t/p/w154{{n.poster_path}}' alt='{{n.title}}'>
+      </a>
+      <br>
+      <p>{{n.title}}</p>
+      <br>
+      Add form for Review scoring
+      <p>{{n.vote_average}}/10</p>
+    </li>
+  </ul>
+</div>
+
+<!-- <div>
+  <h2>Top Rated</h2>
+  <ul class="container">
+    <li *ngFor='let n of topRated' class='thumbnail'>
+      <a href='/moviedetails/{{n.id}}' class='thumb'>
+        <img src='http://image.tmdb.org/t/p/w154{{n.poster_path}}' alt='{{n.title}}'>
+      </a>
+      <p>{{n.title}}</p>
+      <p>{{n.vote_average}}/10</p>
+    </li>
+  </ul>
+</div> -->

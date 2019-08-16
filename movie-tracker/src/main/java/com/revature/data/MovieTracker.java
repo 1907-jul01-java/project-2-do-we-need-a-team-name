@@ -6,8 +6,8 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+// import javax.persistence.JoinColumn;
+// import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -21,10 +21,11 @@ public class MovieTracker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne(targetEntity = com.revature.data.User.class)
-    @JoinColumn(name = "userid")
+    // @OneToOne(targetEntity = com.revature.data.User.class)
+    // @JoinColumn(name = "username")
+    @Column(name = "username", nullable = false)
     @NotBlank
-    private int userid;
+    private String username;
 
     @Column(name = "movieid", nullable = false)
     @NotBlank
@@ -32,11 +33,9 @@ public class MovieTracker {
     private String movieid;
 
     @Column(name = "watched")
-    @NotBlank
     private Boolean watched = false;
 
     @Column(name = "tracked")
-    @NotBlank
     private Boolean tracked = false;
 
     public int getId() {
@@ -47,13 +46,6 @@ public class MovieTracker {
         this.id = id;
     }
 
-    public int getUserid() {
-        return userid;
-    }
-
-    public void setUserid(int userid) {
-        this.userid = userid;
-    }
 
     public String getMovieid() {
         return movieid;
@@ -80,13 +72,31 @@ public class MovieTracker {
     }
 
     @Override
+    public String toString() {
+        return "MovieTracker [id=" + id + ", movieid=" + movieid + ", tracked=" + tracked + ", username=" + username
+                + ", watched=" + watched + "]";
+    }
+
+    public MovieTracker(int id, @NotBlank String username, @NotBlank String movieid, @NotBlank Boolean watched,
+            @NotBlank Boolean tracked) {
+        this.id = id;
+        this.username = username;
+        this.movieid = movieid;
+        this.watched = watched;
+        this.tracked = tracked;
+    }
+
+    public MovieTracker() {
+    }
+
+    @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + id;
         result = prime * result + ((movieid == null) ? 0 : movieid.hashCode());
         result = prime * result + ((tracked == null) ? 0 : tracked.hashCode());
-        result = prime * result + userid;
+        result = prime * result + ((username == null) ? 0 : username.hashCode());
         result = prime * result + ((watched == null) ? 0 : watched.hashCode());
         return result;
     }
@@ -112,7 +122,10 @@ public class MovieTracker {
                 return false;
         } else if (!tracked.equals(other.tracked))
             return false;
-        if (userid != other.userid)
+        if (username == null) {
+            if (other.username != null)
+                return false;
+        } else if (!username.equals(other.username))
             return false;
         if (watched == null) {
             if (other.watched != null)
@@ -122,24 +135,12 @@ public class MovieTracker {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "MovieTracker [id=" + id + ", movieid=" + movieid + ", tracked=" + tracked + ", userid=" + userid
-                + ", watched=" + watched + "]";
+    public String getUsername() {
+        return username;
     }
 
-    public MovieTracker(int id, @NotBlank int userid, @NotBlank String movieid, @NotBlank Boolean watched,
-            @NotBlank Boolean tracked) {
-        this.id = id;
-        this.userid = userid;
-        this.movieid = movieid;
-        this.watched = watched;
-        this.tracked = tracked;
-    }
-
-    public MovieTracker() {
-    }
-
-    
+    public void setUsername(String username) {
+        this.username = username;
+    }   
 
 }
