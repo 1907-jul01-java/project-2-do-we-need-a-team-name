@@ -11,7 +11,7 @@
           <h4>{{n.vote_average}}/10</h4>
           <p>{{n.overview}}</p>
         </div>
-        <a class="button" id="removeWatched">&#10006;</a>
+        <a class="button" (click) = remove(); id="removeWatched">&#10006;</a>
       </div>
     </li>
   </ul>
@@ -30,21 +30,8 @@
           <h4>{{n.vote_average}}/10</h4>
           <p>{{n.overview}}</p>
         </div>
-        <a class="button" id="removeWatched">&#10006;</a>
+        <a class="button" (click) = remove(); id="removeWatched">&#10006;</a>
       </div>
     </li>
   </ul>
 </div>
-
-<!-- <div>
-  <h2>Top Rated</h2>
-  <ul class="container">
-    <li *ngFor='let n of topRated' class='thumbnail'>
-      <a href='/moviedetails/{{n.id}}' class='thumb'>
-        <img src='http://image.tmdb.org/t/p/w154{{n.poster_path}}' alt='{{n.title}}'>
-      </a>
-      <p>{{n.title}}</p>
-      <p>{{n.vote_average}}/10</p>
-    </li>
-  </ul>
-</div> -->

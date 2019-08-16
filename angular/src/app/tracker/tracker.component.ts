@@ -29,6 +29,7 @@ export class TrackerComponent implements OnInit {
   Tracked;
   Watched;
   movie;
+  json;
   track = [];
   watch = [];
 
@@ -82,12 +83,16 @@ export class TrackerComponent implements OnInit {
     // });
   }
 
-  // displayMovie(id) {
-  //   this.details.getMovie(id).subscribe((response) => { 
-  //     this.movie = response;
-  //     console.log(this.movie);
-  //   });
-  //   return this.movie;
+  // remove(){
+  //   this.json = {"id": }
+  //   this.tracker.deleteTracker(json){
+
+  //   }
   // }
 
+  // this.json = {"username": sessionStorage.getItem("username"),
+  //     "movieid": this.route.snapshot.paramMap.get("movie"),
+  //     "watched": true
+  //  }
+  //   this.tracker.postTracker(this.json).subscribe();
 }

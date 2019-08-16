@@ -32,11 +32,13 @@ export class TrackerService {
     return this.http.get(this.url);
   }
 
-  postTracker(movieTracker: MovieTracker){
-    return this.http.post<MovieTracker[]>(this.url, MovieTracker, this.httpOptions);
+  postTracker(json){
+    this.url = (`http://localhost:8080/postTracker`)
+    console.log(json);
+    return this.http.post(this.url, json, this.httpOptions);
   }
 
-  updateTracker(movieTracker: MovieTracker){
-
+  updateTracker(json){
+    return this.http.put(this.url, json, this.httpOptions)
   }
 }

@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         response => {
           sessionStorage.setItem('username', response.username);
           sessionStorage.setItem('guest_session_id', response.guestid);
-          this.router.navigate(['']);
+          this.router.navigate(['/user']);
         });
     //this.loginService.postLogin()
     // this.userInfo = this.loginService.getLogin(this.f.username.value, this.f.password.value);
