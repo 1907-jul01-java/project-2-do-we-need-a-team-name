@@ -1,4 +1,5 @@
 <!-- <button (click)="displayMovie('19404')">Testing</button> -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <section>
   <div style="width:100%; height:80vh;"
     [ngStyle]="{background: 'center/cover fixed url(https://image.tmdb.org/t/p/original' + movie.backdrop_path + ')' }">
@@ -58,6 +59,9 @@
       </strong>
     </p>
   </div>
+  <button type=button class="btn btn-success active" id ="Tracked"> Track</button>
+  <button type=button class="btn btn-success active" id="Watched">Watched</button>
+
 </section>
 
 <app-reviews></app-reviews>

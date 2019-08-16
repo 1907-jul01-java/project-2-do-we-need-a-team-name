@@ -3,7 +3,10 @@
 .card{
     box-shadow: 0 4px 8px 0 rgba(0,0,0.2);
     transition: 0.3s;
-    display: flex;
+    padding-bottom: 1em;
+    padding-right: 4em;
+    padding-top: 0.5em;
+    padding-left: 4em;
 }
 .list{
     display: flex;
@@ -11,19 +14,28 @@
     flex-direction: column;
     justify-content: flex-start;
     flex-grow: 1;
-    flex-basis: 40%;
+    flex-basis: 55%;
     align-content: space-around;
     align-items: flex-start;
 }
 .list-items{
     display: flex;
     padding: 0.5em;
-    width: 40%;
+    width: 55%;
+    margin: auto;
    
 }
 
+h3{
+    position: relative;
+    left: 55vw;
+    width: 40%;
+}
+
 #stars{
-    text-align: center;
+    position: relative;
+    left: 30vw;
+    width: 40%;
 }
 
 .rating { 
