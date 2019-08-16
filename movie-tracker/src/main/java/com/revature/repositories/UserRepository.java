@@ -53,4 +53,12 @@ public class UserRepository {
             return userError;
         }
     }
+
+    public User updateGuestSession(User user) {
+        User nu = new User();
+        nu = findByUsername(user.getUsername());
+        nu.setGuestid(user.getGuestid());
+        getSession().update(nu);
+        return nu;
+    }
 }
