@@ -38,7 +38,8 @@ export class TrackerService {
     return this.http.post(this.url, json, this.httpOptions);
   }
 
-  updateTracker(json){
-    return this.http.put(this.url, json, this.httpOptions)
+  deleteTracker(json){
+    this.url = (`http://localhost:8080/deleteTracker`)
+    return this.http.post(this.url, json, this.httpOptions)
   }
 }
