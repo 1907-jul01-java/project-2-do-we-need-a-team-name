@@ -3,7 +3,7 @@ import { TrackerService } from '../tracker.service';
 import { FormGroup } from '@angular/forms';
 import { MovieTracker } from './MovieTracker';
 import { MoviedetailsService } from '../moviedetails.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Login } from '../login/Login';
 import { ConfigService } from '../config.service';
 import { stringify } from '@angular/core/src/util';
@@ -22,7 +22,7 @@ export class TrackerComponent implements OnInit {
   
 
   constructor(private tracker: TrackerService, private details: MoviedetailsService,
-       private route: ActivatedRoute, private configService: ConfigService ) {
+       private route: ActivatedRoute, private configService: ConfigService, private router: Router ) {
         // this.currentUser = this.tracker.currentUserValue;
    }
   @Input() 
@@ -77,22 +77,16 @@ export class TrackerComponent implements OnInit {
         console.log(this.watch);
       });
 
-    // this.tracker.postTracker(movieTracker).subscribe(response => {
-    //   this.topRated = response['results'];
-    //   console.log(this.topRated);
-    // });
   }
 
+  logout(){
+    sessionStorage.removeItem("username");
+    this.router.navigate(["/login"]);
+  }
   // remove(){
   //   this.json = {"id": }
   //   this.tracker.deleteTracker(json){
 
   //   }
   // }
-
-  // this.json = {"username": sessionStorage.getItem("username"),
-  //     "movieid": this.route.snapshot.paramMap.get("movie"),
-  //     "watched": true
-  //  }
-  //   this.tracker.postTracker(this.json).subscribe();
 }

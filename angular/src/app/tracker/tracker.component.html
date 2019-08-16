@@ -1,4 +1,7 @@
 <div>
+  <button (click)="logout()">Logout</button>
+</div>
+<div>
   <h2>Watched</h2>
   <ul class="container">
     <li *ngFor='let n of watch' class='thumbnail'>
@@ -11,7 +14,7 @@
           <h4>{{n.vote_average}}/10</h4>
           <p>{{n.overview}}</p>
         </div>
-        <a class="button" (click) = remove(); id="removeWatched">&#10006;</a>
+        <a class="button" (click) = removew() id="removeWatched">&#10006;</a>
       </div>
     </li>
   </ul>
@@ -30,7 +33,7 @@
           <h4>{{n.vote_average}}/10</h4>
           <p>{{n.overview}}</p>
         </div>
-        <a class="button" (click) = remove(); id="removeWatched">&#10006;</a>
+        <a class="button" (click) = removet() id="removeWatched">&#10006;</a>
       </div>
     </li>
   </ul>
