@@ -19,11 +19,8 @@
   <ul class="list">
     <li *ngFor='let r of reviews' class="list-items">
       <div class="card">
-        <br>
-        <h4>{{r.author}}</h4>
-        <br>
+        <h4 id="author">{{r.author}}:</h4>
         <p>{{r.content}}</p>
-        <br>
       </div>
     </li>
   </ul>
