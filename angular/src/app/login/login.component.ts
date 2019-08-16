@@ -30,12 +30,13 @@ export class LoginComponent implements OnInit {
   get f() { return this.loginForm.controls; }
 
   OnSubmit() {
-    this.loginService.postLogin({ 'username': this.f.username.value, 'password': this.f.password.value })
+    this.loginService.postLogin({ 'username': this.f.username.value, 'password': this.f.password.value, 'guestid': null })
       .pipe(first())
       .subscribe(
         response => {
-          sessionStorage.setItem('username', response.username)
-          this.router.navigate(['/user']);
+          sessionStorage.setItem('username', response.username);
+          sessionStorage.setItem('guest_session_id', response.guestid);
+          this.router.navigate(['']);
         });
     //this.loginService.postLogin()
     // this.userInfo = this.loginService.getLogin(this.f.username.value, this.f.password.value);

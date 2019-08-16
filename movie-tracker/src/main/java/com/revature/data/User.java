@@ -121,6 +121,12 @@ public class User {
         this.password = password;
     }
 
+    public User(@NotBlank String username, @NotBlank String password, String guestid) {
+        this.username = username;
+        this.password = password;
+        this.guestid = guestid;
+    }
+
     public User(int userid, @NotBlank String username, @NotBlank String password) {
         this.userid = userid;
         this.username = username;

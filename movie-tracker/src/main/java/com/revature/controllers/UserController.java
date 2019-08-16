@@ -44,4 +44,10 @@ public class UserController {
         return un;
     }
 
+    @RequestMapping("/update")
+    public User update(@RequestBody User user) {
+        userRepository.updateGuestSession(user);
+        return user;
+    }
+
 }
