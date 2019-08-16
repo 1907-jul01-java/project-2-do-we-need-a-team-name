@@ -21,8 +21,12 @@ export class MoviedetailsComponent implements OnInit {
     this.details.getMovie(id).subscribe((response) => { this.movie = response; });
   }
 
-  onSubmit() {
-    // Add movie to watched or tracked list
+  submitTracker() {
+    // Add movie to tracked list
+  }
+
+  submitWatched(){
+    // Add movie to watched or
   }
 
 
