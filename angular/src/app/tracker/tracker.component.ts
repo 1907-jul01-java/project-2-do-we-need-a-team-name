@@ -39,7 +39,7 @@ export class TrackerComponent implements OnInit {
     // this.movie = this.route.snapshot.paramMap.get("movie");
     // 
 
-    this.tracker.getTracked("User").subscribe(response => {
+    this.tracker.getTracked(sessionStorage.getItem("username")).subscribe(response => {
       this.Tracked = response;
       console.log(this.Tracked);
 
@@ -59,7 +59,7 @@ export class TrackerComponent implements OnInit {
     
       
 
-    this.tracker.getWatched("User").subscribe(response => {
+    this.tracker.getWatched(sessionStorage.getItem("username")).subscribe(response => {
       this.Watched = response;
       console.log(this.Watched);
 
