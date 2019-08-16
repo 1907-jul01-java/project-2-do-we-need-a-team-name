@@ -31,7 +31,7 @@ public class User {
     // "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$")
     private String password;
 
-    @Column (name = "guestid")
+    @Column(name = "guestid")
     private String guestid;
 
     public int getUserid() {
@@ -74,7 +74,7 @@ public class User {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((guestid == null) ? 0 : guestid.hashCode());   
+        result = prime * result + ((guestid == null) ? 0 : guestid.hashCode());
         result = prime * result + ((password == null) ? 0 : password.hashCode());
         result = prime * result + userid;
         result = prime * result + ((username == null) ? 0 : username.hashCode());
@@ -111,17 +111,14 @@ public class User {
     }
 
     @Override
-	public String toString() {
-		return "User [guestid=" + guestid + ", password="
-				+ password + ", userid=" + userid + ", username=" + username + "]";
-	}
+    public String toString() {
+        return "User [guestid=" + guestid + ", password=" + password + ", userid=" + userid + ", username=" + username
+                + "]";
+    }
 
-    public User(int userid, @NotBlank String username, @NotBlank String password, String firstname, String lastname,
-            String guestid) {
-        this.userid = userid;
+    public User(@NotBlank String username, @NotBlank String password) {
         this.username = username;
         this.password = password;
-        this.guestid = guestid;
     }
 
     public User(int userid, @NotBlank String username, @NotBlank String password) {
