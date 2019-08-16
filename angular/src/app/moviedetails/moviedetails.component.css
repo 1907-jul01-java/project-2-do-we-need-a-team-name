@@ -3,7 +3,8 @@
     column-gap: 40px;
     column-width: 100px;    
     position: relative;
-    right: 10vw;
+    right: 1vw;
+    width: 85%;
 }
 
 .poster{

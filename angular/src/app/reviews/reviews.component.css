@@ -29,11 +29,13 @@
 h3{
     position: relative;
     left: 55vw;
+    width: 40%;
 }
 
 #stars{
     position: relative;
     left: 30vw;
+    width: 40%;
 }
 
 .rating { 
