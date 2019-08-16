@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { MoviedetailsComponent } from './moviedetails/moviedetails.component';
+import { TrackerComponent } from './tracker/tracker.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 
 @NgModule({
@@ -18,6 +19,7 @@ import { ReviewsComponent } from './reviews/reviews.component';
     RegisterComponent,
     HomeComponent,
     MoviedetailsComponent,
+    TrackerComponent,
     ReviewsComponent
   ],
   imports: [

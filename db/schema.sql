@@ -40,12 +40,76 @@ VALUES
     'I can''t believe how good this movie is!'
   );
 
+insert into 
+  users(username, pw)
+VALUES
+  ('User', 'p4ss');
+
 insert into
   movie_tracker (username, movieid, watched, tracked)
 VALUES
   ( 
-    'test',
+    'User',
     '420818',
     false,
     true
   );
+
+insert into
+  movie_tracker (username, movieid, watched, tracked)
+VALUES
+  ( 
+    'User',
+    '429617',
+    true,
+    false
+  );
+
+insert into
+  movie_tracker (username, movieid, watched, tracked)
+VALUES
+  ( 
+    'User',
+    '447404',
+    true,
+    false
+  );
+
+insert into
+  movie_tracker (username, movieid, watched, tracked)
+VALUES
+  ( 
+    'User',
+    '458156',
+    true,
+    true
+  );
+
+insert into
+  movie_tracker (username, movieid, watched, tracked)
+VALUES
+  ( 
+    'User',
+    '',
+    false,
+    false
+  );
+insert into
+  movie_tracker (username, movieid, watched, tracked)
+VALUES
+  ( 
+    'User',
+    '384018',
+    false,
+    true
+  );
+insert into
+  movie_tracker (username, movieid, watched, tracked)
+VALUES
+  ( 
+    'User',
+    '466272',
+    false,
+    true
+  );
+
