@@ -1,7 +1,7 @@
 package com.revature;
 
-import main.java.com.revature.Servlet;
-import com.google.gson.Gson;
+// import com.revature.Servlet;
+// import com.google.gson.Gson;
 
 /**
  * Hello world!

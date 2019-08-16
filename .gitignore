@@ -16,3 +16,4 @@ movie-tracker/.settings
 .vscode/launch.json
 .vscode/settings.json
 movie-tracker/target/
+movie-tracker/src/main/webapp/ng/

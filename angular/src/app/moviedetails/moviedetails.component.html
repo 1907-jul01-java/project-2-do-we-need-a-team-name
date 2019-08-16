@@ -44,7 +44,8 @@
     <p>
       <span *ngFor="let company of movie.production_companies; let i=index">
         <span>
-          <img class="miniLogo" width="100px" src="https://image.tmdb.org/t/p/original{{company.logo_path}}">
+          <img class="miniLogo" width="100px" src="https://image.tmdb.org/t/p/original{{company.logo_path}}"
+            alt={{company.name}}>
         </span>
       </span>
     </p>
@@ -58,6 +59,9 @@
       </strong>
     </p>
   </div>
+  <button type=button class="btn btn-success active" id ="Tracked"> Track</button>
+  <button type=button class="btn btn-success active" id="Watched">Watched</button>
+
 </section>
 
 <app-reviews></app-reviews>
